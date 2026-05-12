@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+    environment {
+        dockerimage = ''
+        registry = 'majenayu/test23'
+        registryCredential = 'jenkin_docker_token'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Nithaksha-07/programiz.git']])
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    dockerimage = docker.build registry
+                }
+            }
+        }
+    }
+}
+
+
+
+docker build -t test1 .
+docker run --name con1 test1
+docker images
+docker tag ce78c602ba1e sinchana269/test100:latest
+docker push sinchana269/test100:latest
+
+
+
+https://my.slack.com/services/new/jenkins-ci
