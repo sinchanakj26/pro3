@@ -32,3 +32,9 @@ docker push sinchana269/test100:latest
 
 
 https://my.slack.com/services/new/jenkins-ci
+
+
+cloudbees docker custom build environment
+docker
+docker pipeline
+docker compose build steps
